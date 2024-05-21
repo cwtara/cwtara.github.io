@@ -1,1 +1,1 @@
-console.log('test again', Date.new())
+console.log('test again', Date.now())
