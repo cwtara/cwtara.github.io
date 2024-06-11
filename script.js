@@ -24,5 +24,6 @@ if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
 window.onload = () => {
   console.log('geoIPData', geoIPData)
 
-  document.querySelector('.country-dropdown').querySelector('.country-flag').classList.value
+  const isSelectedCountry = document.querySelector('.country-dropdown').querySelector('.country-flag').classList.contains(geoIPData.country_code.toLowerCase())
+  console.log('isSelectedCountry', isSelectedCountry)
 }
