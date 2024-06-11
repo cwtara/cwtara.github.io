@@ -7,10 +7,11 @@ function geoip(json){
 const userLang = navigator.language || navigator.userLanguage
 console.log('userLang', userLang)
 
-const LANGUAGE_ALLOWLIST = ['ar-ae','ar-eg']
+const LANGUAGE_ALLOWLIST = ['ar-ae','ar-eg', 'en-us']
 
-if (LANGUAGE_ALLOWLIST.includes(userLang)) {
+if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
   console.log('yup')
+  window.location.replace(`/${userLang}`)
 } else {
   console.log('nah')
 }
