@@ -23,4 +23,6 @@ if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
 /** start currency handling */
 window.onload = () => {
   console.log('geoIPData', geoIPData)
+
+  document.querySelector('.country-dropdown').querySelector('.country-flag').classList.value
 }
