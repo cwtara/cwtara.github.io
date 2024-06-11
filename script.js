@@ -1,8 +1,9 @@
 console.log('Current time: ', Date.now())
 
-// function geoip(json){
-//   console.log('geoip', json)
-// }
+let geoIPData
+function geoip(json){
+  geoIPData = json
+}
 
 /** start locale handling */
 const userLang = navigator.language || navigator.userLanguage
@@ -21,7 +22,5 @@ if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
 
 /** start currency handling */
 window.onload = () => {
-  const geoip = (json) => {
-    console.log('geoip', json)
-  }
+  console.log('geoIPData', geoIPData)
 }
