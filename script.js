@@ -24,6 +24,7 @@ if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
 window.onload = () => {
   console.log('geoIPData', geoIPData)
 
-  const isSelectedCountry = document.querySelector('.country-dropdown').querySelector('.country-flag').classList.contains(geoIPData.country_code.toLowerCase())
-  console.log('isSelectedCountry', isSelectedCountry)
+  const selectedCurrency = shopyflow && shopyflow.config?.storefrontConfig?.storeCurrency.toLowerCase()
+  const isCurrencyMatchUserCountryCode = selectedCurrency == geoIPData.country_code.toLowerCase()
+  console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
 }
