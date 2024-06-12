@@ -11,7 +11,7 @@ console.log('userLang', userLang)
 const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
 
 if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
-  console.log('language redirect')
+  console.log('language redirect: ', userLang)
   // window.location.replace(`/${userLang}`)
 }
 /** end locale handling */
