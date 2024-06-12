@@ -1,5 +1,3 @@
-console.log('Current time: ', Date.now())
-
 let geoIPData
 function geoip(json){
   geoIPData = json
@@ -16,7 +14,6 @@ if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
   console.log('language redirect')
   // window.location.replace(`/${userLang}`)
 }
-
 /** end locale handling */
 
 /** start currency handling */
@@ -32,3 +29,4 @@ window.onload = () => {
     // hide currency select prompt
   }
 }
+/** end currency handling */
