@@ -7,16 +7,14 @@ function geoip(json){
 
 /** start locale handling */
 const userLangRegion = navigator.language || navigator.userLanguage
-const userLang = userLangRegion.split('-')[0].toLowerCase()
+const userLang = userLangRegion.split('-')[0]
 console.log('userLang', userLang)
 
-const LANGUAGE_ALLOWLIST = ['ar', 'es']
+const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
 
-if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
+if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
   console.log('language redirect')
   // window.location.replace(`/${userLang}`)
-} else {
-  console.log('do not redirect')
 }
 
 /** end locale handling */
@@ -29,4 +27,8 @@ window.onload = () => {
   const isCurrencyMatchUserCountryCode = selectedCurrency == geoIPData.country_code.toLowerCase()
   console.log('selectedCurrency', selectedCurrency)
   console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
+
+  if (isCurrencyMatchUserCountryCode) {
+    // hide currency select prompt
+  }
 }
