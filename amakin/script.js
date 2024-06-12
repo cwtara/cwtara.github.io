@@ -21,8 +21,10 @@ window.onload = () => {
   console.log('geoIPData', geoIPData)
 
   const selectedCurrency = typeof shopyflow !== 'undefined' && shopyflow.config?.storefrontConfig?.storeCurrency.toLowerCase() || ''
-  const isCurrencyMatchUserCountryCode = selectedCurrency == geoIPData.country_code.toLowerCase()
+  const userCountry = geoIPData.country_code.toLowerCase()
+  const isCurrencyMatchUserCountryCode = selectedCurrency == userCountry
   console.log('selectedCurrency', selectedCurrency)
+  console.log('userCountry', userCountry)
   console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
 
   if (isCurrencyMatchUserCountryCode) {
