@@ -6,10 +6,11 @@ function geoip(json){
 }
 
 /** start locale handling */
-const userLang = navigator.language || navigator.userLanguage
+const userLangRegion = navigator.language || navigator.userLanguage
+const userLang = userLangRegion.split('-')[0].toLowerCase()
 console.log('userLang', userLang)
 
-const LANGUAGE_ALLOWLIST = ['ar-ae','ar-eg']
+const LANGUAGE_ALLOWLIST = ['ar', 'es']
 
 if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
   console.log('language redirect')
