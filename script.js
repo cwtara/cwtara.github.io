@@ -24,7 +24,7 @@ if (LANGUAGE_ALLOWLIST.includes(userLang.toLowerCase())) {
 window.onload = () => {
   console.log('geoIPData', geoIPData)
 
-  const selectedCurrency = shopyflow && shopyflow.config?.storefrontConfig?.storeCurrency.toLowerCase() || ''
+  const selectedCurrency = typeof shopyflow !== 'undefined' && shopyflow.config?.storefrontConfig?.storeCurrency.toLowerCase() || ''
   const isCurrencyMatchUserCountryCode = selectedCurrency == geoIPData.country_code.toLowerCase()
   console.log('selectedCurrency', selectedCurrency)
   console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
