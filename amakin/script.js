@@ -35,5 +35,8 @@ window.onload = () => {
   } else {
     // show currency select modal
   }
+
+  const widgetElement = document.querySelector('[data-oke-widget]')
+  if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, 'shopify-8044971000130')
 }
 /** end currency handling */
