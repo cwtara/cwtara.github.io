@@ -20,7 +20,7 @@ if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
 window.onload = () => {
   console.log('geoIPData', geoIPData)
 
-  const selectedCurrency = typeof shopyflow !== 'undefined' && shopyflow.config?.storefrontConfig?.storeCurrency.toLowerCase() || ''
+  const selectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.config?.storefrontConfig?.storeCurrency.toLowerCase() || ''
   const userCountry = geoIPData.country_code.toLowerCase()
   const isCurrencyMatchUserCountryCode = selectedCurrency == userCountry
   console.log('selectedCurrency', selectedCurrency)
@@ -28,7 +28,11 @@ window.onload = () => {
   console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
 
   if (isCurrencyMatchUserCountryCode) {
-    // hide currency select prompt
+    // hide currency select modal (or do nothing if we are auto-setting)
+  } else if (typeof Shopyflow !== 'undefined') {
+    Shopyflow.setCurrency({ countryCode: userCountry })
+  } else {
+    // show currency select modal
   }
 }
 /** end currency handling */
