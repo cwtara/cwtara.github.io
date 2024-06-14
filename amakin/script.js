@@ -31,7 +31,7 @@ window.onload = () => {
     // hide currency select modal (or do nothing if we are auto-setting)
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
-    Shopyflow.setCurrency({ countryCode: userCountry })
+    // Shopyflow.setCurrency({ countryCode: userCountry })
   } else {
     // show currency select modal
   }
