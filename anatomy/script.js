@@ -40,3 +40,9 @@ window.onload = () => {
       $('#oke-stars-pdp').append(starRatingSvg)
     });
 }
+
+window.onscroll = () => {
+  if ($(window).scrollTop() > $('body').innerHeight()) {
+    $('product-container').css('overflow', 'unset');
+  }
+}
