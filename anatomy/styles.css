@@ -1,8 +1,8 @@
-/* .list-item-number::marker, .list-item-icon::marker {
+.list-item-number::marker, .list-item-icon::marker {
   font-size: 0.6rem;
 }
 
-.product-container {
+/* .product-container {
   height: 100vh;
   width: 100vw;
   overflow-y: scroll;
