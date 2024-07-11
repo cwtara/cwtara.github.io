@@ -43,7 +43,7 @@ window.onload = () => {
 
   $(window).on('scroll', () => {
     console.log('scrolling', disableScrollJack)
-    if (!disableScrollJack) {
+    if (!disableScrollJack && $(window).scrollTop() === 0) {
       $('html').animate({
         scrollTop: $('.d-image-scroll').offset().top
       }, 100)
