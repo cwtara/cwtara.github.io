@@ -5,7 +5,7 @@ const starsConstructor = (ratingPercentage) => {
   return `
     <div class="oke-stars" style="text-align:left;">
       <div class="oke-stars-background">
-        <svg height="18" viewBox="0 0 79.22222222222221 14" aria-hidden="true">
+        <svg height="14" viewBox="0 0 79.22222222222221 14" aria-hidden="true">
           <use x="0" href="#oke-star-empty"></use>
           <use x="16.155555555555555" href="#oke-star-empty"></use>
           <use x="32.31111111111111" href="#oke-star-empty"></use>
@@ -14,7 +14,7 @@ const starsConstructor = (ratingPercentage) => {
         </svg>
       </div>
       <div class="oke-stars-foreground" style="width: ${ratingPercentage}%">
-        <svg height="18" viewBox="0 0 79.22222222222221 14" aria-hidden="true">
+        <svg height="14" viewBox="0 0 79.22222222222221 14" aria-hidden="true">
           <use x="0" href="#oke-star-filled"></use>
           <use x="16.155555555555555" href="#oke-star-filled"></use>
           <use x="32.31111111111111" href="#oke-star-filled"></use>
