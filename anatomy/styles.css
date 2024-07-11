@@ -1,0 +1,3 @@
+.list-item-number::marker, .list-item-icon::marker {
+	font-size: 0.6rem;
+}
