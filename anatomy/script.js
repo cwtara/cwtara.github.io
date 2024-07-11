@@ -1,6 +1,5 @@
 const SHOPIFY_PRODUCT_ID = 'shopify-8044971000130'
 const OKENDO_SUBSCRIBER_ID = 'ac615854-e743-4537-85c5-b3cbfcb7dcd7'
-let disableScrollJack = false
 
 const starsConstructor = (ratingPercentage) => {
   return `
@@ -29,6 +28,8 @@ const starsConstructor = (ratingPercentage) => {
 
 window.onload = () => {
   const widgetElement = document.querySelector('[data-oke-widget]')
+  let disableScrollJack = false && $(window).scrollTop() === 0
+  
   if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, SHOPIFY_PRODUCT_ID)
 
   fetch(`https://api.okendo.io/v1/stores/${OKENDO_SUBSCRIBER_ID}/products/${SHOPIFY_PRODUCT_ID}/review_aggregate`)
@@ -46,7 +47,7 @@ window.onload = () => {
     if (!disableScrollJack) {
       $('html').animate({
         scrollTop: $('.d-image-scroll').offset().top
-      }, 100)
+      }, 200)
     }
     disableScrollJack = true
   })
