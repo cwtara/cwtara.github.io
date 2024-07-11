@@ -35,8 +35,8 @@ window.onload = () => {
     .then(data => {
       const reviewAggregateData = data?.reviewAggregate
       const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
-      console.log('starsConstructor', starsConstructor(ratingPercentage))
-      $('#oke-stars-lander').append(starsConstructor(ratingPercentage))
-      $('#oke-stars-pdp').append(starsConstructor(ratingPercentage))
+      const starRatingSvg = starsConstructor(ratingPercentage)
+      $('#oke-stars-lander').append(starRatingSvg)
+      $('#oke-stars-pdp').append(starRatingSvg)
     });
 }
