@@ -1,5 +1,6 @@
 const SHOPIFY_PRODUCT_ID = 'shopify-8044971000130'
 const OKENDO_SUBSCRIBER_ID = 'ac615854-e743-4537-85c5-b3cbfcb7dcd7'
+const disableScrollJack = false
 
 const starsConstructor = (ratingPercentage) => {
   return `
@@ -47,4 +48,13 @@ window.onload = () => {
   //     $('.product-container').removeClass('no-scroll-snap')
   //   }
   // });
+
+  $(window).on('scroll', () => {
+    if (!disableScrollJack) {
+      $('html').animate({
+        scrollTop: $('.d-image-scroll').offset().top
+      }, 500)
+    }
+    disableScrollJack = true
+  })
 }
