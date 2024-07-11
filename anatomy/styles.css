@@ -2,8 +2,10 @@
 	font-size: 0.6rem;
 }
 
-.scrolljack {
-	overflow: scroll;
+.product-container {
+	overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 .no-scroll-snap {

@@ -40,13 +40,20 @@ window.onload = () => {
       $('#oke-stars-pdp').append(starRatingSvg)
     });
   
-  $('.product-container').addClass('scrolljack')
+  // $('.product-container').addClass('scrolljack')
+  // $('.product-container').on('scroll', () => {
+  //   console.log('scroll', $('.product-container').scrollTop(), $('body').innerHeight())
+  //   if ($('.product-container').scrollTop() >= $('body').innerHeight()) {
+  //     console.log('UNSET')
+  //     $('.product-container').removeClass('scrolljack')
+  //     $('.product-container').addClass('no-scroll-snap')
+  //   }
+  // })
   $('.product-container').on('scroll', () => {
-    console.log('scroll', $('.product-container').scrollTop(), $('body').innerHeight())
-    if ($('.product-container').scrollTop() >= $('body').innerHeight()) {
-      console.log('UNSET')
-      $('.product-container').removeClass('scrolljack')
+    if ($('.product-container').scrollTop() >= $('body').offset().top) {
       $('.product-container').addClass('no-scroll-snap')
+    } else {
+      $('.product-container').removeClass('no-scroll-snap')
     }
-  })
+  });
 }
