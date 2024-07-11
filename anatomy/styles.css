@@ -10,4 +10,5 @@
 
 .no-scroll-snap {
 	scroll-snap-type: initial;
+  overflow-y: initial;
 }
