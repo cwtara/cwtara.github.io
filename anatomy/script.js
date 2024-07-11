@@ -8,10 +8,8 @@ window.onload = () => {
   fetch(`https://api.okendo.io/v1/stores/${OKENDO_SUBSCRIBER_ID}/products/${SHOPIFY_PRODUCT_ID}/review_aggregate`)
     .then(response => response.json())
     .then(data => {
-      const SUBTRACT_OFFSET = 0
       const reviewAggregateData = data?.reviewAggregate
       const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
-      const starsWidth = ratingPercentage - SUBTRACT_OFFSET
-      $('#oke-stars-lander').attr('style', `width: ${starsWidth}%`)
+      $('#oke-stars-lander').attr('style', `width: ${ratingPercentage}%`)
     });
 }
