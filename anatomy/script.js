@@ -6,4 +6,5 @@ window.onload = () => {
   if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, SHOPIFY_PRODUCT_ID)
 
   const starElement = $('.oke-w-ratingAverageModule-rating-stars')[0]?.cloneNode(true)
+  console.log('starElement', starElement)
 }
