@@ -39,15 +39,7 @@ window.onload = () => {
       const starRatingSvg = starsConstructor(ratingPercentage)
       $('#oke-stars-lander').append(starRatingSvg)
       $('#oke-stars-pdp').append(starRatingSvg)
-    });
-  
-  // $('.product-container').on('scroll', () => {
-  //   if ($('.product-container').scrollTop() >= $('body').innerHeight()) {
-  //     $('.product-container').addClass('no-scroll-snap')
-  //   } else {
-  //     $('.product-container').removeClass('no-scroll-snap')
-  //   }
-  // });
+    })
 
   $(window).on('scroll', () => {
     console.log('scrolling', disableScrollJack)
