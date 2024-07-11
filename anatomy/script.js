@@ -43,6 +43,7 @@ window.onload = () => {
 
 window.onscroll = () => {
   if ($(window).scrollTop() > $('body').innerHeight()) {
+    console.log('UNSET')
     $('product-container').css('overflow', 'unset');
   }
 }
