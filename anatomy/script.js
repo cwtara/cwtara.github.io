@@ -54,7 +54,7 @@ window.onload = () => {
     if (!disableScrollJack) {
       $('html').animate({
         scrollTop: $('.d-image-scroll').offset().top
-      }, 500)
+      }, 100)
     }
     disableScrollJack = true
   })
