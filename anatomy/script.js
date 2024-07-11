@@ -1,6 +1,6 @@
 const SHOPIFY_PRODUCT_ID = 'shopify-8044971000130'
 const OKENDO_SUBSCRIBER_ID = 'ac615854-e743-4537-85c5-b3cbfcb7dcd7'
-const disableScrollJack = false
+let disableScrollJack = false
 
 const starsConstructor = (ratingPercentage) => {
   return `
