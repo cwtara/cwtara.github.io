@@ -12,6 +12,6 @@ window.onload = () => {
       const reviewAggregateData = data?.reviewAggregate
       const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
       const starsWidth = ratingPercentage - SUBTRACT_OFFSET
-      $('#oke-stars-lander').attr('style', `width: ${starsWidth}`)
+      $('#oke-stars-lander').attr('style', `width: ${starsWidth}%`)
     });
 }
