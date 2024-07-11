@@ -11,5 +11,6 @@ window.onload = () => {
       const reviewAggregateData = data?.reviewAggregate
       const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
       $('#oke-stars-lander').attr('style', `width: ${ratingPercentage}%`)
+      $('#oke-stars-pdp').attr('style', `width: ${ratingPercentage}%`)
     });
 }
