@@ -1,3 +1,11 @@
 .list-item-number::marker, .list-item-icon::marker {
 	font-size: 0.6rem;
 }
+
+.scrolljack {
+	overflow: scroll;
+}
+
+.no-scroll-snap {
+	scroll-snap-type: initial;
+}
