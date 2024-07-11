@@ -10,7 +10,7 @@ window.onload = () => {
     .then(data => {
       const SUBTRACT_OFFSET = 27
       const reviewAggregateData = data?.reviewAggregate
-      const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewCount / 5 * 100)
+      const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
       const starsWidth = ratingPercentage - SUBTRACT_OFFSET
       console.log('starsWidth', starsWidth)
     });
