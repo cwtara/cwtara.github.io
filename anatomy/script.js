@@ -5,7 +5,5 @@ window.onload = () => {
   const widgetElement = document.querySelector('[data-oke-widget]')
   if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, SHOPIFY_PRODUCT_ID)
 
-  fetch(`https://api.okendo.io/v1/stores/${OKENDO_SUBSCRIBER_ID}/products/${SHOPIFY_PRODUCT_ID}/review_aggregate`)
-    .then(response => response.json())
-    .then(data => console.log(data));
+  const starElement = $('.oke-w-ratingAverageModule-rating-stars')[0]?.cloneNode(true)
 }
