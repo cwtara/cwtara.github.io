@@ -39,12 +39,12 @@ window.onload = () => {
       $('#oke-stars-lander').append(starRatingSvg)
       $('#oke-stars-pdp').append(starRatingSvg)
     });
-}
-
-window.onscroll = () => {
-  console.log('scroll')
-  if ($(window).scrollTop() > $('body').innerHeight()) {
-    console.log('UNSET')
-    $('.product-container').css('overflow', 'unset');
-  }
+  
+  $('.product-container').on('scroll', () => {
+    console.log('scroll')
+    if ($('body').scrollTop() > $('body').innerHeight()) {
+      console.log('UNSET')
+      $('.product-container').css('overflow', 'unset');
+    }
+  })
 }
