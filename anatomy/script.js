@@ -49,11 +49,11 @@ window.onload = () => {
   //     $('.product-container').addClass('no-scroll-snap')
   //   }
   // })
-  $('.product-container').on('scroll', () => {
-    if ($('.product-container').scrollTop() >= $('body').innerHeight()) {
-      $('.product-container').addClass('no-scroll-snap')
+  $('body').on('scroll', () => {
+    if ($('body').scrollTop() >= $('body').innerHeight()) {
+      $('body').addClass('no-scroll-snap')
     } else {
-      $('.product-container').removeClass('no-scroll-snap')
+      $('body').removeClass('no-scroll-snap')
     }
   });
 }

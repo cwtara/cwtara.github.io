@@ -2,8 +2,8 @@
 	font-size: 0.6rem;
 }
 
-.product-container {
-	overflow-y: scroll;
+body {
+	/* overflow-y: scroll; */
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
