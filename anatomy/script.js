@@ -50,7 +50,7 @@ window.onload = () => {
   //   }
   // })
   $('.product-container').on('scroll', () => {
-    if ($('.product-container').scrollTop() >= $('body').offset().top) {
+    if ($('.product-container').scrollTop() >= $('body').innerHeight()) {
       $('.product-container').addClass('no-scroll-snap')
     } else {
       $('.product-container').removeClass('no-scroll-snap')
