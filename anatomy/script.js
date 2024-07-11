@@ -5,6 +5,9 @@ window.onload = () => {
   const widgetElement = document.querySelector('[data-oke-widget]')
   if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, SHOPIFY_PRODUCT_ID)
 
-  const starElement = $('.oke-w-ratingAverageModule-rating-stars')[0]?.cloneNode(true)
-  console.log('starElement', starElement)
+  // const starElement = $('.oke-w-ratingAverageModule-rating-stars')[0]?.cloneNode(true)
+
+  document.addEventListener('readystatechange', e => {
+    console.log('e', e)
+  })
 }
