@@ -1,5 +1,5 @@
-.list-item-number::marker, .list-item-icon::marker {
-	font-size: 0.6rem;
+/* .list-item-number::marker, .list-item-icon::marker {
+  font-size: 0.6rem;
 }
 
 .product-container {
@@ -11,10 +11,10 @@
 }
 
 .no-scroll-snap {
-	scroll-snap-type: initial;
+  scroll-snap-type: initial;
   overflow-y: initial;
 }
 
 .landing, .d-image-scroll {
   scroll-snap-align: start;
-}
+} */
