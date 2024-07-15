@@ -42,13 +42,13 @@ window.onload = () => {
       $('#oke-stars-pdp').append(starRatingSvg)
     })
 
-  $(window).on('scroll', () => {
-    console.log('scrolling', disableScrollJack)
-    if (!disableScrollJack) {
-      $('html').animate({
-        scrollTop: $('.d-image-scroll').offset().top
-      }, 400)
-    }
-    disableScrollJack = true
-  })
+  // $(window).on('scroll', () => {
+  //   console.log('scrolling', disableScrollJack)
+  //   if (!disableScrollJack) {
+  //     $('html').animate({
+  //       scrollTop: $('.d-image-scroll').offset().top
+  //     }, 400)
+  //   }
+  //   disableScrollJack = true
+  // })
 }
