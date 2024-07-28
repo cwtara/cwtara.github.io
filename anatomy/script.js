@@ -38,8 +38,12 @@ window.onload = () => {
       const reviewAggregateData = data?.reviewAggregate
       const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
       const starRatingSvg = starsConstructor(ratingPercentage)
-      $('#oke-stars-lander').append(starRatingSvg)
-      $('#oke-stars-pdp').append(starRatingSvg)
+
+      setTimeout(() => {
+        $('#oke-stars-lander').append(starRatingSvg)
+        $('#oke-stars-pdp').append(starRatingSvg)
+        $('#oke-stars-mobile').append(starRatingSvg)
+      })
     })
 
   // $(window).on('scroll', () => {
