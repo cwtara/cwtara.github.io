@@ -26,24 +26,24 @@ const starsConstructor = (ratingPercentage) => {
   `
 }
 
+const widgetElement = document.querySelector('[data-oke-widget]')
+let disableScrollJack = false && $(window).scrollTop() === 0
+
+if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, SHOPIFY_PRODUCT_ID)
+
+fetch(`https://api.okendo.io/v1/stores/${OKENDO_SUBSCRIBER_ID}/products/${SHOPIFY_PRODUCT_ID}/review_aggregate`)
+  .then(response => response.json())
+  .then(data => {
+    const reviewAggregateData = data?.reviewAggregate
+    const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
+    const starRatingSvg = starsConstructor(ratingPercentage)
+
+    $('#oke-stars-lander, #oke-stars-pdp, #oke-stars-mobile').append(starRatingSvg)
+  })
+  .finally(() => {
+    setTimeout(() => $('.okendo-star-wrapper').css('display', 'block').css('padding-top', '10px'), 250) 
+  })
 window.onload = () => {
-  const widgetElement = document.querySelector('[data-oke-widget]')
-  let disableScrollJack = false && $(window).scrollTop() === 0
-  
-  if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, SHOPIFY_PRODUCT_ID)
-
-  fetch(`https://api.okendo.io/v1/stores/${OKENDO_SUBSCRIBER_ID}/products/${SHOPIFY_PRODUCT_ID}/review_aggregate`)
-    .then(response => response.json())
-    .then(data => {
-      const reviewAggregateData = data?.reviewAggregate
-      const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
-      const starRatingSvg = starsConstructor(ratingPercentage)
-
-      $('#oke-stars-lander, #oke-stars-pdp, #oke-stars-mobile').append(starRatingSvg)
-    })
-    .finally(() => {
-      setTimeout(() => $('.okendo-star-wrapper').css('display', 'block').css('padding-top', '10px'), 250) 
-    })
 
   // $(window).on('scroll', () => {
   //   console.log('scrolling', disableScrollJack)
