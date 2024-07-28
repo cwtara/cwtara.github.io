@@ -41,9 +41,6 @@ window.onload = () => {
 
       $('#oke-stars-lander, #oke-stars-pdp, #oke-stars-mobile').append(starRatingSvg)
     })
-    .finally(() => {
-      setTimeout(() => $('.okendo-star-wrapper').css('display', 'block').css('padding-top', '10px'), 250) 
-    })
 
   // $(window).on('scroll', () => {
   //   console.log('scrolling', disableScrollJack)
