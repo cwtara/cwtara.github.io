@@ -43,7 +43,7 @@ window.onload = () => {
         $('#oke-stars-lander').append(starRatingSvg)
         $('#oke-stars-pdp').append(starRatingSvg)
         $('#oke-stars-mobile').append(starRatingSvg)
-      })
+      }, 100)
     })
 
   // $(window).on('scroll', () => {
