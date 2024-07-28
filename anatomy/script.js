@@ -52,3 +52,9 @@ window.onload = () => {
   //   disableScrollJack = true
   // })
 }
+
+window.addEventListener('ShopyflowReady', (event) => {
+  Shopyflow.on('addToCart', (obj) => {
+    console.log(obj)
+  })
+});
