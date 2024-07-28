@@ -40,7 +40,9 @@ window.onload = () => {
       const starRatingSvg = starsConstructor(ratingPercentage)
 
       $('#oke-stars-lander, #oke-stars-pdp, #oke-stars-mobile').append(starRatingSvg)
-      // setTimeout(() => $('.okendo-star-wrapper').css('display', 'block'), 250) 
+    })
+    .finally(() => {
+      setTimeout(() => $('.okendo-star-wrapper').css('display', 'block').css('padding-top', '10px'), 250) 
     })
 
   // $(window).on('scroll', () => {
