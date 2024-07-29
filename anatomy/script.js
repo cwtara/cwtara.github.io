@@ -63,6 +63,11 @@ window.addEventListener('ShopyflowReady', (event) => {
 
 window.onscroll = () => {
   if (
+    $('.pdp').offset().top < ViewportHeight ||
+    $('.m-fixed-hero').offset().top < ViewportHeight
+  ) {
+    $('.navbar').removeClass('below-fold')
+  } else if (
     $('.pdp').offset().top >= ViewportHeight ||
     $('.m-fixed-hero').offset().top >= ViewportHeight
   ) {
