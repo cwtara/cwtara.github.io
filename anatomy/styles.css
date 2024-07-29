@@ -20,11 +20,11 @@
   color: #000;
 }
 
-.m-nav .mobile-nav-wrapper {
+.navbar .m-nav > .mobile-nav-wrapper {
   background: #a7b4bc;
 }
 
-.m-nav.below-fold .mobile-nav-wrapper {
+.navbar.below-fold .m-nav > .mobile-nav-wrapper {
   background: #000;
 }
 

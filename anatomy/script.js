@@ -67,7 +67,6 @@ window.onscroll = () => {
     $('.m-fixed-hero').offset().top < ViewportHeight
   ) {
     $('.navbar').removeClass('below-fold')
-    $('.m-nav').removeClass('below-fold')
   } 
 
   if (
@@ -76,6 +75,5 @@ window.onscroll = () => {
   ) {
     console.log('2')
     $('.navbar').addClass('below-fold')
-    $('.m-nav').addClass('below-fold')
   }
 }
