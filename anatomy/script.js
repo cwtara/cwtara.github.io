@@ -62,9 +62,10 @@ window.addEventListener('ShopyflowReady', (event) => {
 });
 
 window.onscroll = () => {
-  console.log('scrolling...')
-  console.log('??', $('.m-fixed-hero').offset().top, ViewportHeight)
-  if ($('.m-fixed-hero').offset().top == ViewportHeight) {
+  if (
+    $('.pdp').offset().top >= ViewportHeight ||
+    $('.m-fixed-hero').offset().top >= ViewportHeight
+  ) {
     console.log('scrolled to viewport height')
   }
 }
