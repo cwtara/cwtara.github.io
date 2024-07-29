@@ -75,6 +75,6 @@ window.onscroll = () => {
     $('.m-fixed-hero').offset().top >= ViewportHeight
   ) {
     $('.navbar').addClass('below-fold')
-    $('buy-cta-wrapper').addClass('below-fold')
+    $('.buy-cta-wrapper').addClass('below-fold')
   }
 }
