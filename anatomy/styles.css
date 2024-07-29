@@ -36,6 +36,14 @@
   color: #fff;
 }
 
+.buy-cta-wrapper {
+  bottom: 3rem;
+}
+
+.buy-cta-wrapper.below-fold {
+  bottom: 0rem;
+}
+
 .klaviyo-form input {
 	padding: 0!important;
 }
