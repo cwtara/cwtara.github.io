@@ -10,6 +10,11 @@
 	font-size: 1.5rem;
 }
 
+.navbar a.nav-link:hover {
+  background: transparent;
+  color: #2c86ff;
+}
+
 .klaviyo-form input {
 	padding: 0!important;
 }
