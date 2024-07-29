@@ -20,6 +20,14 @@
   color: #000;
 }
 
+.m-nav .mobile-nav-wrapper {
+  background: #a7b4bc;
+}
+
+.m-nav.below-fold .mobile-nav-wrapper {
+  background: #000;
+}
+
 .klaviyo-form input {
 	padding: 0!important;
 }
