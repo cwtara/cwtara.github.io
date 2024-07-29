@@ -28,6 +28,10 @@
   background: #000;
 }
 
+.navbar.below-fold .m-nav > .mobile-nav-wrapper > a img.fade-on-scroll {
+  opacity: 0;
+}
+
 .klaviyo-form input {
 	padding: 0!important;
 }
