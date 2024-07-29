@@ -1,5 +1,6 @@
 const SHOPIFY_PRODUCT_ID = 'shopify-8044971000130'
 const OKENDO_SUBSCRIBER_ID = 'ac615854-e743-4537-85c5-b3cbfcb7dcd7'
+let ViewportHeight
 
 const starsConstructor = (ratingPercentage) => {
   return `
@@ -27,6 +28,7 @@ const starsConstructor = (ratingPercentage) => {
 }
 
 window.onload = () => {
+  ViewportHeight = window.innerHeight
   const widgetElement = document.querySelector('[data-oke-widget]')
   let disableScrollJack = false && $(window).scrollTop() === 0
   
@@ -58,3 +60,9 @@ window.addEventListener('ShopyflowReady', (event) => {
     console.log(obj)
   })
 });
+
+window.onscroll = () => {
+  if ($('.pdp, .m-fixed-hero').offset().top == ViewportHeight) {
+    console.log('scrolled to viewport height')
+  }
+}
