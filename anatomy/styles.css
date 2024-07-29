@@ -2,6 +2,38 @@
   font-size: 0.6rem;
 }
 
+.navbar.below-fold a.nav-link {
+	font-size: 1.25rem;
+}
+
+.navbar a.nav-link {
+	font-size: 1.5rem;
+}
+
+.klaviyo-form input {
+	padding: 0!important;
+}
+
+@media only screen and (max-width: 478px) {
+  .klaviyo-form input {
+    font-size: 1rem!important;
+    height: auto!important;
+    padding: 0!important;
+  }
+  .klaviyo-form form>div.needsclick {
+  	min-height: auto!important;
+  }
+  .klaviyo-form input::placeholder {
+    font-size: 1rem!important;
+  }
+  .klaviyo-form button.needsclick {
+		font-size: 1rem!important;
+    height: 1rem!important;
+    display: inline-flex!important;
+	  align-items: center!important;
+  }
+}
+
 /* .product-container {
   height: 100vh;
   width: 100vw;
