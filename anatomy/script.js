@@ -66,6 +66,6 @@ window.onscroll = () => {
     $('.pdp').offset().top >= ViewportHeight ||
     $('.m-fixed-hero').offset().top >= ViewportHeight
   ) {
-    console.log('scrolled to viewport height')
+    $('.navbar').addClass('below-fold')
   }
 }
