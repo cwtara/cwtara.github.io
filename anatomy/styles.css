@@ -32,6 +32,10 @@
   opacity: 0;
 }
 
+.navbar.below-fold .m-nav > .mobile-nav-wrapper > .menu-button-2 {
+  color: #fff;
+}
+
 .klaviyo-form input {
 	padding: 0!important;
 }
