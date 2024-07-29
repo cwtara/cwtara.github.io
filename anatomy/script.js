@@ -66,11 +66,13 @@ window.onscroll = () => {
     $('.pdp').offset().top < ViewportHeight ||
     $('.m-fixed-hero').offset().top < ViewportHeight
   ) {
+    console.log('1')
     $('.navbar').removeClass('below-fold')
   } else if (
     $('.pdp').offset().top >= ViewportHeight ||
     $('.m-fixed-hero').offset().top >= ViewportHeight
   ) {
+    console.log('2')
     $('.navbar').addClass('below-fold')
   }
 }
