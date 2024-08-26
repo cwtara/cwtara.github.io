@@ -75,17 +75,5 @@ window.onscroll = () => {
   ) {
     $('.navbar').addClass('below-fold')
   }
-  
-  if (
-    $('.pdp').offset().top === 0
-  ) {
-    $('.buy-cta-wrapper').removeClass('below-fold')
-  }
-  
-  if (
-    $('.pdp').offset().top > 0
-  ) {
-    $('.buy-cta-wrapper').addClass('below-fold')
-  }
 
 }
