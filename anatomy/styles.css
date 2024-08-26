@@ -36,8 +36,10 @@
   color: #fff;
 }
 
-.buy-cta-wrapper {
-  bottom: 3rem;
+@media only screen and (min-width: 1200px) {
+  .buy-cta-wrapper {
+    bottom: 3rem;
+  }
 }
 
 .buy-cta-wrapper.below-fold {
