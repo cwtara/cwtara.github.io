@@ -50,7 +50,7 @@
 	padding: 0!important;
 }
 
-@media only screen and (max-width: 478px) {
+@media only screen and (max-width: 478px) and (min-width: 991px) {
   .klaviyo-form input {
     font-size: 1rem!important;
     height: auto!important;
