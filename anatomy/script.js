@@ -62,30 +62,30 @@ window.addEventListener('ShopyflowReady', (event) => {
 });
 
 window.onscroll = () => {
-  if (
-    $('.pdp').offset().top < ViewportHeight &&
-    $('.m-fixed-hero').offset().top < ViewportHeight
-  ) {
-    $('.navbar').removeClass('below-fold')
-  }
+  // if (
+  //   $('.pdp').offset().top < ViewportHeight &&
+  //   $('.m-fixed-hero').offset().top < ViewportHeight
+  // ) {
+  //   $('.navbar').removeClass('below-fold')
+  // }
 
-  if (
-    $('.pdp').offset().top >= ViewportHeight ||
-    $('.m-fixed-hero').offset().top >= ViewportHeight
-  ) {
-    $('.navbar').addClass('below-fold')
-  }
+  // if (
+  //   $('.pdp').offset().top >= ViewportHeight ||
+  //   $('.m-fixed-hero').offset().top >= ViewportHeight
+  // ) {
+  //   $('.navbar').addClass('below-fold')
+  // }
   
-  if (
-    $('.pdp').offset().top === 0
-  ) {
-    $('.buy-cta-wrapper').removeClass('below-fold')
-  }
+  // if (
+  //   $('.pdp').offset().top === 0
+  // ) {
+  //   $('.buy-cta-wrapper').removeClass('below-fold')
+  // }
   
-  if (
-    $('.pdp').offset().top > 0
-  ) {
-    $('.buy-cta-wrapper').addClass('below-fold')
-  }
+  // if (
+  //   $('.pdp').offset().top > 0
+  // ) {
+  //   $('.buy-cta-wrapper').addClass('below-fold')
+  // }
 
 }
