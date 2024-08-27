@@ -44,8 +44,8 @@ window.onload = () => {
       const starRatingSvg = starsConstructor(ratingPercentage)
       
       $('#oke-stars-lander, #oke-stars-pdp, #oke-stars-mobile').prepend(starRatingSvg)
-      $('.oke-rating-num').each(() => $(this).append(ratingOfFive))
-      $('.oke-review-total').each(() => $(this).append(reviewCount))
+      $('.oke-rating-num').append(ratingOfFive)
+      $('.oke-review-total').append(reviewCount)
     })
 
   // $(window).on('scroll', () => {
