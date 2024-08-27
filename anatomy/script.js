@@ -39,7 +39,7 @@ window.onload = () => {
     .then(data => {
       const reviewAggregateData = data?.reviewAggregate
       const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
-      const ratingOfFive = (ratingPercentage / 100) * 5
+      const ratingOfFive = Math.round((ratingPercentage / 100) * 5)
       const reviewCount = reviewAggregateData.reviewCount
       const starRatingSvg = starsConstructor(ratingPercentage)
       
