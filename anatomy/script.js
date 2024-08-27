@@ -43,7 +43,7 @@ window.onload = () => {
       const reviewCount = reviewAggregateData.reviewCount
       const starRatingSvg = starsConstructor(ratingPercentage)
       
-      $('#oke-stars-lander, #oke-stars-pdp, #oke-stars-mobile').append(starRatingSvg)
+      $('#oke-stars-lander, #oke-stars-pdp, #oke-stars-mobile').prepend(starRatingSvg)
       $('.oke-rating-num').append(ratingOfFive)
       $('.oke-review-total').append(reviewCount)
     })
