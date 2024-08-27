@@ -37,6 +37,7 @@ window.onload = () => {
   fetch(`https://api.okendo.io/v1/stores/${OKENDO_SUBSCRIBER_ID}/products/${SHOPIFY_PRODUCT_ID}/review_aggregate`)
     .then(response => response.json())
     .then(data => {
+      console.log('oke data', data)
       const reviewAggregateData = data?.reviewAggregate
       const ratingPercentage = Math.floor(reviewAggregateData.ratingAndReviewValuesTotal / reviewAggregateData.reviewCount / 5 * 100)
       const starRatingSvg = starsConstructor(ratingPercentage)
