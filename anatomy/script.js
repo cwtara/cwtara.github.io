@@ -65,8 +65,6 @@ window.addEventListener('ShopyflowReady', (event) => {
   })
 });
 
-window.addEventListener('scroll', onScroll);
-
 window.onscroll = () => {
   const pdpOffset = $('.pdp').offset().top
   const mFixedHeroOffset = $('.m-fixed-hero').offset().top
