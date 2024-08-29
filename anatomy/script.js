@@ -66,16 +66,18 @@ window.addEventListener('ShopyflowReady', (event) => {
 });
 
 window.onscroll = () => {
+  const pdpOffset = $('.pdp').offset().top
+  const mFixedHeroOffset = $('.m-fixed-hero').offset().top
   if (
-    $('.pdp').offset().top < ViewportHeight &&
-    $('.m-fixed-hero').offset().top < ViewportHeight
+    pdpOffset < ViewportHeight &&
+    mFixedHeroOffset < ViewportHeight
   ) {
     $('.navbar').removeClass('below-fold')
   }
 
   if (
-    $('.pdp').offset().top >= ViewportHeight ||
-    $('.m-fixed-hero').offset().top >= ViewportHeight
+    pdpOffset >= ViewportHeight ||
+    mFixedHeroOffset >= ViewportHeight
   ) {
     $('.navbar').addClass('below-fold')
   }
