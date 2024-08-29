@@ -60,6 +60,7 @@ window.onload = () => {
 }
 
 // Performance increase
+let scheduledAnimationFrame = false
 const onScroll = (evt) => {
   // Store the scroll value for laterz.
   lastScrollY = window.scrollY;
