@@ -59,11 +59,26 @@ window.onload = () => {
   // })
 }
 
+// Performance increase
+const onScroll = (evt) => {
+  // Store the scroll value for laterz.
+  lastScrollY = window.scrollY;
+
+  // Prevent multiple rAF callbacks.
+  if (scheduledAnimationFrame)
+  return;
+
+  scheduledAnimationFrame = true;
+  requestAnimationFrame(readAndUpdatePage);
+}
+
 window.addEventListener('ShopyflowReady', (event) => {
   Shopyflow.on('addToCart', (obj) => {
     console.log(obj)
   })
 });
+
+window.addEventListener('scroll', onScroll);
 
 window.onscroll = () => {
   const pdpOffset = $('.pdp').offset().top
