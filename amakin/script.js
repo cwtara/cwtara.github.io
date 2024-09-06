@@ -34,7 +34,7 @@ window.onload = () => {
   } else if (typeof Shopyflow !== 'undefined' && autoSelectCurrency && !isCurrencyMatchUserCountryCode) {
     // automatically set currency in Shopyflow
     console.log('setting currency to:', userCountry)
-    // Shopyflow.setCurrency(userCountry)
+    Shopyflow.setCurrency(userCountry)
   } else {
     // show currency select modal
     console.log('where are you? please select a currency')
