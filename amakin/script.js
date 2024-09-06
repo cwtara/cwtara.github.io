@@ -28,7 +28,6 @@ window.onload = () => {
   console.log('selectedCurrency', selectedCurrency)
   console.log('userCountry', userCountry)
   console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
-  console.log()
 
   if (isCurrencyMatchUserCountryCode) {
     // hide currency select modal (or do nothing if we are auto-setting)
