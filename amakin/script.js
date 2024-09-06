@@ -9,6 +9,7 @@ const userLang = userLangRegion.split('-')[0]
 console.log('userLang', userLang)
 
 const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
+const CURRENCY_ALLOWLIST = ['ae', 'sa', 'qa']
 
 if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
   console.log('language redirect: ', userLang)
@@ -23,17 +24,20 @@ window.onload = () => {
   const selectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toLowerCase() || ''
   const userCountry = geoIPData?.country_code?.toLowerCase()
   const isCurrencyMatchUserCountryCode = selectedCurrency == userCountry
+  const autoSelectCurrency = CURRENCY_ALLOWLIST.includes(userCountry)
   console.log('selectedCurrency', selectedCurrency)
   console.log('userCountry', userCountry)
   console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
+  console.log()
 
   if (isCurrencyMatchUserCountryCode) {
     // hide currency select modal (or do nothing if we are auto-setting)
-  } else if (typeof Shopyflow !== 'undefined') {
+  } else if (typeof Shopyflow !== 'undefined' && autoSelectCurrency) {
     // automatically set currency in Shopyflow
-    // Shopyflow.setCurrency({ countryCode: userCountry })
+    Shopyflow.setCurrency(userCountry)
   } else {
     // show currency select modal
+    console.log('where are you? please select a currency')
   }
 
   const widgetElement = document.querySelector('[data-oke-widget]')
