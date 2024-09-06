@@ -21,7 +21,7 @@ window.onload = () => {
   console.log('geoIPData', geoIPData)
 
   const selectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toLowerCase() || ''
-  const userCountry = geoIPData.country_code.toLowerCase()
+  const userCountry = geoIPData?.country_code?.toLowerCase()
   const isCurrencyMatchUserCountryCode = selectedCurrency == userCountry
   console.log('selectedCurrency', selectedCurrency)
   console.log('userCountry', userCountry)
