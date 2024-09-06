@@ -22,7 +22,7 @@ window.onload = () => {
   console.log('geoIPData', geoIPData)
 
   const selectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toLowerCase() || ''
-  const userCountry = geoIPData?.country_code?.toLowerCase()
+  const userCountry = 'sa'//geoIPData?.country_code?.toLowerCase()
   const isCurrencyMatchUserCountryCode = selectedCurrency == userCountry
   const autoSelectCurrency = CURRENCY_ALLOWLIST.includes(userCountry)
   console.log('selectedCurrency', selectedCurrency)
