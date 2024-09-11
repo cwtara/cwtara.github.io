@@ -36,12 +36,6 @@ window.onload = () => {
     // automatically set currency in Shopyflow
     console.log('setting currency to:', userCountry)
     Shopyflow.setCurrency(userCountry)
-  } else if (!shopyflowSelectedCurrency) {
-    // show currency select modal
-    console.log('where are you? please select a currency')
   }
-
-  const widgetElement = document.querySelector('[data-oke-widget]')
-  if (window.okeWidgetApi) window.okeWidgetApi.setProduct(widgetElement, 'shopify-8044971000130')
 }
 /** end currency handling */
