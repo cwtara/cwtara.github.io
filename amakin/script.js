@@ -9,7 +9,7 @@ const userLang = userLangRegion.split('-')[0]
 console.log('userLang', userLang)
 
 const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
-const CURRENCY_ALLOWLIST = ['ae', 'sa', 'qa']
+const CURRENCY_ALLOWLIST = ['AE', 'SA', 'QA']
 
 if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
   console.log('language redirect: ', userLang)
