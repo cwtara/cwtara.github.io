@@ -21,11 +21,11 @@ if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
 window.onload = () => {
   console.log('geoIPData', geoIPData)
 
-  const selectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toLowerCase() || ''
-  const userCountry = geoIPData?.country_code?.toLowerCase()
-  const isCurrencyMatchUserCountryCode = selectedCurrency == userCountry
+  const shopyflowSelectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toUpperCase() || ''
+  const userCountry = geoIPData?.country_code?.toUpperCase()
+  const isCurrencyMatchUserCountryCode = shopyflowSelectedCurrency == userCountry
   const autoSelectCurrency = CURRENCY_ALLOWLIST.includes(userCountry)
-  console.log('selectedCurrency', selectedCurrency)
+  console.log('shopyflowSelectedCurrency', shopyflowSelectedCurrency)
   console.log('userCountry', userCountry)
   console.log('isCurrencyMatchUserCountryCode', isCurrencyMatchUserCountryCode)
 
@@ -34,8 +34,8 @@ window.onload = () => {
   } else if (typeof Shopyflow !== 'undefined' && !isCurrencyMatchUserCountryCode && autoSelectCurrency) {
     // automatically set currency in Shopyflow
     console.log('setting currency to:', userCountry)
-    Shopyflow.setCurrency(userCountry.toUpperCase())
-  } else {
+    Shopyflow.setCurrency(userCountry)
+  } else if (!shopyflowSelectedCurrency) {
     // show currency select modal
     console.log('where are you? please select a currency')
   }
