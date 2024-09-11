@@ -40,6 +40,13 @@ window.onload = () => {
 
 const setCurrencyHandler = (userCountry) => {
   console.log('Automatically setting currency to:', userCountry)
-  return Shopyflow.setCurrency(userCountry)
+  const localStorageIsSet = localStorage.getItem(window.location.origin)
+  // check localstorage for auto currency setter
+  if (!localStorageIsSet) {
+    localStorage.setItem(window.location.origin, true)
+    return Shopyflow.setCurrency(userCountry)
+  } else {
+    return
+  }
 }
 /** end currency handling */
