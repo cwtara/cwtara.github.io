@@ -31,11 +31,15 @@ window.onload = () => {
 
   if (isSetCountryMatching) {
     // hide currency select modal (or do nothing if we are auto-setting)
-    console.log('already set, no update needed!')
+    console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined' && !isSetCountryMatching && allowUserCountry) {
     // automatically set currency in Shopyflow
-    console.log('setting currency to:', userCountry)
-    Shopyflow.setCurrency(userCountry)
+    setCurrencyHandler(userCountry)
   }
+}
+
+const setCurrencyHandler = (userCountry) => {
+  console.log('Automatically setting currency to:', userCountry)
+  return Shopyflow.setCurrency(userCountry)
 }
 /** end currency handling */
