@@ -22,9 +22,9 @@ window.onload = () => {
   // user country
   const shopyflowSelectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toUpperCase() || ''
   const userCountry = geoIPData?.country_code?.toUpperCase()
-  const isSetCountryMatching = (shopyflowSelectedCurrency == userCountry)
+  const isUserCountryMatching = (shopyflowSelectedCurrency == userCountry)
   const allowUserCountry = validateCurrency(userCountry)
-  console.log('isSetCountryMatching', isSetCountryMatching)
+  console.log('isUserCountryMatching', isUserCountryMatching)
 
   const queryParams = new URLSearchParams(window.location.search)
   const countryURLParam = queryParams.get('selectCountry')
@@ -34,7 +34,7 @@ window.onload = () => {
   
   console.log('setCurrencyHandler', countryURLParam, localStorageIsSet, setCountry)
 
-  if (isSetCountryMatching || !countryURLParam) {
+  if (isUserCountryMatching || !countryURLParam && allowUserCountry) {
     // hide currency select modal (or do nothing if we are auto-setting)
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
