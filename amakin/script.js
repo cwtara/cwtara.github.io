@@ -40,7 +40,7 @@ window.onload = () => {
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
-    console.log('call setCurrencyHandler()')
+    console.log('call setCurrencyHandler()', userCountry, localStorageIsSet)
     setCurrencyHandler(userCountry, localStorageIsSet)
   }
 }
