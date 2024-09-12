@@ -46,6 +46,7 @@ const setCurrencyHandler = (userCountry) => {
   const setCountry = localStorageIsSet ? userCountry : countryURLParam
   
   if (!localStorageIsSet && CURRENCY_ALLOWLIST.includes(setCountry)) {
+    console.log('setting...', setCountry)
     localStorage.setItem(window.location.origin, true)
     return Shopyflow.setCurrency(setCountry)
   } else {
