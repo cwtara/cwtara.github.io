@@ -46,10 +46,10 @@ const setCurrencyHandler = (userCountry) => {
   const setCountry = localStorageIsSet ? userCountry : countryURLParam || ''
   
   console.log('setCurrencyHandler', localStorageIsSet, setCountry)
-  if (!localStorageIsSet && validateCurrency(setCountry)) {
+  if (validateCurrency(setCountry)) {
     console.log('setCurrency()...', setCountry)
 
-    if (localStorageIsSet) localStorage.setItem(window.location.origin, true)
+    if (!localStorageIsSet) localStorage.setItem(window.location.origin, true)
     if (countryURLParam) queryParams.delete('selectCountry')
 
     return Shopyflow.setCurrency(setCountry)
