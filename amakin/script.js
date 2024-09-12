@@ -23,7 +23,7 @@ window.onload = () => {
   const shopyflowSelectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toUpperCase() || ''
   const userCountry = geoIPData?.country_code?.toUpperCase()
   const isSetCountryMatching = (shopyflowSelectedCurrency == userCountry)
-  const allowUserCountry = CURRENCY_ALLOWLIST.includes(userCountry)
+  const allowUserCountry = validateCurrency(userCountry)
   console.log('isSetCountryMatching', isSetCountryMatching)
 
   if (isSetCountryMatching) {
@@ -43,15 +43,22 @@ const setCurrencyHandler = (userCountry) => {
   const countryURLParam = queryParams.get('selectCountry')
 
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
-  const setCountry = localStorageIsSet ? userCountry : countryURLParam
+  const setCountry = localStorageIsSet ? userCountry : countryURLParam || ''
   
   console.log('setCurrencyHandler', localStorageIsSet, setCountry)
-  if (!localStorageIsSet && CURRENCY_ALLOWLIST.includes(setCountry)) {
+  if (validateCurrency(setCountry)) {
     console.log('setCurrency()...', setCountry)
-    localStorage.setItem(window.location.origin, true)
+    
+    if (localStorageIsSet) localStorage.setItem(window.location.origin, true)
+    if (countryURLParam) queryParams.delete('selectCountry')
+
     return Shopyflow.setCurrency(setCountry)
   } else {
     return
   }
 }
 /** end currency handling */
+
+const validateCurrency = (country) => {
+  return CURRENCY_ALLOWLIST.includes(country)
+}
