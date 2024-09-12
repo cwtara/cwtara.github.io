@@ -41,12 +41,12 @@ window.onload = () => {
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
     console.log('call setCurrencyHandler()', setCountry, userCountry, localStorageIsSet)
-    setCurrencyHandler(setCountry, localStorageIsSet, countryURLParam)
+    setCurrencyHandler(setCountry, localStorageIsSet, countryURLParam, queryParams)
   }
 }
 
 /** Checks localStorage to see if currency has already been manually set */
-const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam) => {
+const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, queryParams) => {
   // url params
 
   if (validateCurrency(setCountry)) {
