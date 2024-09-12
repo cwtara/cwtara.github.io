@@ -26,18 +26,6 @@ window.onload = () => {
   const allowUserCountry = validateCurrency(userCountry)
   console.log('isSetCountryMatching', isSetCountryMatching)
 
-  // if (isSetCountryMatching) {
-  //   // hide currency select modal (or do nothing if we are auto-setting)
-  //   console.log('Already set, no update needed!')
-  // } else if (typeof Shopyflow !== 'undefined' && !isSetCountryMatching && allowUserCountry) {
-  //   // automatically set currency in Shopyflow
-  // }
-  setCurrencyHandler(userCountry)
-}
-
-/** Checks localStorage to see if currency has already been manually set */
-const setCurrencyHandler = (userCountry) => {
-  // url params
   const queryString = window.location.search
   const queryParams = new URLSearchParams(queryString)
   const countryURLParam = queryParams.get('selectCountry')
@@ -46,6 +34,20 @@ const setCurrencyHandler = (userCountry) => {
   const setCountry = countryURLParam ? countryURLParam : localStorageIsSet ? userCountry : ''
   
   console.log('setCurrencyHandler', countryURLParam, localStorageIsSet, setCountry)
+
+  if (isSetCountryMatching) {
+    // hide currency select modal (or do nothing if we are auto-setting)
+    console.log('Already set, no update needed!')
+  } else if (typeof Shopyflow !== 'undefined' && !isSetCountryMatching && allowUserCountry) {
+    // automatically set currency in Shopyflow
+    setCurrencyHandler(userCountry, localStorageIsSet)
+  }
+}
+
+/** Checks localStorage to see if currency has already been manually set */
+const setCurrencyHandler = (setCountry, localStorageIsSet) => {
+  // url params
+
   if (validateCurrency(setCountry)) {
     console.log('setCurrency()...', setCountry)
 
