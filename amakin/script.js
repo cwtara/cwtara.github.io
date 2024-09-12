@@ -24,7 +24,6 @@ window.onload = () => {
   const userCountry = geoIPData?.country_code?.toUpperCase()
   const isSetCountryMatching = (shopyflowSelectedCurrency == userCountry)
   const allowUserCountry = validateCurrency(userCountry)
-  console.log('isSetCountryMatching', isSetCountryMatching)
 
   const queryString = window.location.search
   const queryParams = new URLSearchParams(queryString)
@@ -32,28 +31,22 @@ window.onload = () => {
 
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
   const setCountry = countryURLParam ? countryURLParam : localStorageIsSet ? userCountry : ''
-  
-  console.log('setCurrencyHandler', countryURLParam, localStorageIsSet, setCountry)
 
-  if (isSetCountryMatching || !countryURLParam) {
+  if (isSetCountryMatching) {
     // hide currency select modal (or do nothing if we are auto-setting)
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
-    console.log('call setCurrencyHandler()', setCountry, userCountry, localStorageIsSet)
-    setCurrencyHandler(setCountry, localStorageIsSet, countryURLParam, queryParams)
+    setCurrencyHandler(setCountry, localStorageIsSet, countryURLParam)
   }
 }
 
 /** Checks localStorage to see if currency has already been manually set */
-const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, queryParams) => {
+const setCurrencyHandler = (setCountry, localStorageIsSet) => {
   // url params
 
   if (validateCurrency(setCountry)) {
-    console.log('setCurrency()...', setCountry)
-
     if (!localStorageIsSet) localStorage.setItem(window.location.origin, true)
-    if (countryURLParam) queryParams.delete('selectCountry')
 
     return Shopyflow.setCurrency(setCountry)
   } else {
