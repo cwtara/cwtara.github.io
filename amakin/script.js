@@ -24,7 +24,7 @@ window.onload = () => {
   const userCountry = geoIPData?.country_code?.toUpperCase()
   const isSetCountryMatching = (shopyflowSelectedCurrency == userCountry)
   const allowUserCountry = CURRENCY_ALLOWLIST.includes(userCountry)
-
+  console.log('isSetCountryMatching', isSetCountryMatching)
 
   if (isSetCountryMatching) {
     // hide currency select modal (or do nothing if we are auto-setting)
@@ -45,9 +45,9 @@ const setCurrencyHandler = (userCountry) => {
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
   const setCountry = localStorageIsSet ? userCountry : countryURLParam
   
-  console.log('sethandler', localStorageIsSet, setCountry)
+  console.log('setCurrencyHandler', localStorageIsSet, setCountry)
   if (!localStorageIsSet && CURRENCY_ALLOWLIST.includes(setCountry)) {
-    console.log('setting...', setCountry)
+    console.log('setCurrency()...', setCountry)
     localStorage.setItem(window.location.origin, true)
     return Shopyflow.setCurrency(setCountry)
   } else {
