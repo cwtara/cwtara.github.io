@@ -19,15 +19,12 @@ if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
 
 /** start currency handling */
 window.onload = () => {
-  console.log('geoIPData', geoIPData)
-
+  // user country
   const shopyflowSelectedCurrency = typeof Shopyflow !== 'undefined' && Shopyflow.getCurrency().toUpperCase() || ''
   const userCountry = geoIPData?.country_code?.toUpperCase()
   const isSetCountryMatching = (shopyflowSelectedCurrency == userCountry)
   const allowUserCountry = CURRENCY_ALLOWLIST.includes(userCountry)
-  console.log('shopyflowSelectedCurrency', shopyflowSelectedCurrency)
-  console.log('userCountry', userCountry)
-  console.log('isSetCountryMatching', isSetCountryMatching)
+
 
   if (isSetCountryMatching) {
     // hide currency select modal (or do nothing if we are auto-setting)
@@ -40,13 +37,18 @@ window.onload = () => {
 
 /** Checks localStorage to see if currency has already been manually set */
 const setCurrencyHandler = (userCountry) => {
+  // url params
+  const queryString = window.location.search
+  const queryParams = new URLSearchParams(queryString)
+  const countryURLParam = queryParams.get('selectCountry')
+
   const localStorageIsSet = localStorage.getItem(window.location.origin)
-  console.log('localstorageisset', localStorageIsSet)
+  
+  const setCountry = localStorageIsSet ? userCountry : countryURLParam
+
   if (!localStorageIsSet) {
     localStorage.setItem(window.location.origin, true)
-    return Shopyflow.setCurrency(userCountry)
-  } else {
-    return
   }
+  return Shopyflow.setCurrency(setCountry)
 }
 /** end currency handling */
