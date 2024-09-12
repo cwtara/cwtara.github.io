@@ -41,6 +41,7 @@ window.onload = () => {
 /** Checks localStorage to see if currency has already been manually set */
 const setCurrencyHandler = (userCountry) => {
   const localStorageIsSet = localStorage.getItem(window.location.origin)
+  console.log('localstorageisset', localStorageIsSet)
   if (!localStorageIsSet) {
     localStorage.setItem(window.location.origin, true)
     return Shopyflow.setCurrency(userCountry)
