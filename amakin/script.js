@@ -26,11 +26,12 @@ window.onload = () => {
 
   const queryParams = new URLSearchParams(window.location.search)
   const countryURLParam = queryParams.get('selectCountry')
+  const isParamCountryMatching = (shopyflowSelectedCurrency == countryURLParam)
 
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
   const setCountry = countryURLParam ? countryURLParam : userCountry
   
-  if (isUserCountryMatching) {
+  if (isParamCountryMatching || isUserCountryMatching) {
     // hide currency select modal (or do nothing if we are auto-setting)
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
