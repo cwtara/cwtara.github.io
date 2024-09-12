@@ -45,7 +45,7 @@ const setCurrencyHandler = (userCountry) => {
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
   const setCountry = countryURLParam || localStorageIsSet ? userCountry : ''
   
-  console.log('setCurrencyHandler', localStorageIsSet, setCountry)
+  console.log('setCurrencyHandler', countryURLParam, localStorageIsSet, setCountry)
   if (validateCurrency(setCountry)) {
     console.log('setCurrency()...', setCountry)
 
