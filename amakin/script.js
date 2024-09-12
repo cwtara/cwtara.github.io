@@ -26,8 +26,7 @@ window.onload = () => {
   const allowUserCountry = validateCurrency(userCountry)
   console.log('isSetCountryMatching', isSetCountryMatching)
 
-  const queryString = window.location.search
-  const queryParams = new URLSearchParams(queryString)
+  const queryParams = new URLSearchParams(window.location.search)
   const countryURLParam = queryParams.get('selectCountry')
 
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
