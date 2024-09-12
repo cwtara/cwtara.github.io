@@ -42,13 +42,14 @@ const setCurrencyHandler = (userCountry) => {
   const queryParams = new URLSearchParams(queryString)
   const countryURLParam = queryParams.get('selectCountry')
 
-  const localStorageIsSet = localStorage.getItem(window.location.origin)
-  
+  const localStorageIsSet = localStorage.getItem(window.location.origin)  
   const setCountry = localStorageIsSet ? userCountry : countryURLParam
-
-  if (!localStorageIsSet) {
+  
+  if (!localStorageIsSet && CURRENCY_ALLOWLIST.includes(setCountry)) {
     localStorage.setItem(window.location.origin, true)
+    return Shopyflow.setCurrency(setCountry)
+  } else {
+    return
   }
-  return Shopyflow.setCurrency(setCountry)
 }
 /** end currency handling */
