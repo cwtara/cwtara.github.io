@@ -31,7 +31,7 @@ window.onload = () => {
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
   const setCountry = countryURLParam ? countryURLParam : userCountry
   
-  if (isUserCountryMatching && !countryURLParam) {
+  if (isUserCountryMatching) {
     // hide currency select modal (or do nothing if we are auto-setting)
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
