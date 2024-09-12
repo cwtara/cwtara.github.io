@@ -35,7 +35,7 @@ window.onload = () => {
   
   console.log('setCurrencyHandler', countryURLParam, localStorageIsSet, setCountry)
 
-  if (isSetCountryMatching && !countryURLParam) {
+  if (isSetCountryMatching || !countryURLParam) {
     // hide currency select modal (or do nothing if we are auto-setting)
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined' && !isSetCountryMatching && allowUserCountry) {
