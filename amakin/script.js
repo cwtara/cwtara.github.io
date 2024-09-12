@@ -30,7 +30,7 @@ window.onload = () => {
   const countryURLParam = queryParams.get('selectCountry')
 
   const localStorageIsSet = localStorage.getItem(window.location.origin)  
-  const setCountry = countryURLParam ? countryURLParam : localStorageIsSet ? userCountry : ''
+  const setCountry = countryURLParam ? countryURLParam : userCountry
   
   console.log('setCurrencyHandler', countryURLParam, localStorageIsSet, setCountry)
 
