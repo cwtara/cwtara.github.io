@@ -38,13 +38,13 @@ window.onload = () => {
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
-    setCurrencyHandler(setCountry, localStorageIsSet, isParamCountryMatching)
+    setCurrencyHandler(setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching)
   }
 }
 
 /** Checks localStorage to see if currency has already been manually set */
-const setCurrencyHandler = (setCountry, localStorageIsSet, isParamCountryMatching) => {
-  if (validateCurrency(setCountry) && (!localStorageIsSet && !isParamCountryMatching)) {
+const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching) => {
+  if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching) {
     localStorage.setItem(window.location.origin, true)
     return Shopyflow.setCurrency(setCountry)
   } else {
