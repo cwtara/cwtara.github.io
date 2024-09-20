@@ -33,27 +33,29 @@ window.onload = () => {
   const setCountry = countryURLParam && !isParamCountryMatching ? countryURLParam : userCountry
   const localStorageIsSet = localStorage.getItem('amakinCurrencyAutoSet')
 
+  // should auto set currency if localStorage is not set and isFromKW query string is present
+  const autoSetCurrency = !localStorageIsSet || isFromKW
+
   if (isUserCountryMatching && !countryURLParam) { // should check for UAE to avoid load flash
     // hide currency select modal (or do nothing if we are auto-setting)
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
-    setCurrencyHandler(setCountry, localStorageIsSet, isFromKW)
+    setCurrencyHandler(setCountry, autoSetCurrency)
   }
 }
 
 /** Checks localStorage to see if currency has already been automatically set */
 const setCurrencyHandler = (setCountry, localStorageIsSet, isFromKW) => {
   console.log('setCurrencyHandler args', setCountry, localStorageIsSet, isFromKW)
-  if (validateCurrency(setCountry) && (!localStorageIsSet || isFromKW)) {
+  if (validateCurrency(setCountry) && autoSetCurrency) {
     localStorage.setItem('amakinCurrencyAutoSet', true)
-    console.log('1')
 
     if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
       console.log('--> REDIRECT TO KW -->')
       // window.location.assign(KUWAIT_URL)
     } else {
-      history.pushState(null, '', location.href.split('isFromKW')[0])
+      history.pushState(null, '', location.href.split('&isFromKW')[0])
       console.log('setCurrency()', setCountry)
       return Shopyflow.setCurrency(setCountry)
     }
