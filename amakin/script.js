@@ -46,8 +46,8 @@ window.onload = () => {
 }
 
 /** Checks localStorage to see if currency has already been automatically set */
-const setCurrencyHandler = (setCountry, localStorageIsSet, isFromKW) => {
-  console.log('setCurrencyHandler args', setCountry, localStorageIsSet, isFromKW)
+const setCurrencyHandler = (setCountry, autoSetCurrency) => {
+  console.log('setCurrencyHandler args', setCountry, autoSetCurrency)
   if (validateCurrency(setCountry) && autoSetCurrency) {
     localStorage.setItem('amakinCurrencyAutoSet', true)
 
