@@ -9,7 +9,7 @@ const userLang = userLangRegion.split('-')[0]
 console.log('userLang', userLang)
 
 const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
-const CURRENCY_ALLOWLIST = ['AE', 'SA', 'QA', 'KW']
+const CURRENCY_ALLOWLIST = ['AE', 'SA', 'QA', 'KW', 'LA']
 const KUWAIT_URL = 'https://amakin.com.kw'
 
 if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
