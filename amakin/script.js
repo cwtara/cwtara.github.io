@@ -27,6 +27,7 @@ window.onload = () => {
 
   const queryParams = new URLSearchParams(window.location.search)
   const countryURLParam = queryParams.get('selectCountry')
+  const isFromKW = queryParams.get('isFromKW')
   const isParamCountryMatching = (shopyflowSelectedCurrency == countryURLParam)
 
   const setCountry = countryURLParam && !isParamCountryMatching ? countryURLParam : userCountry
@@ -37,14 +38,14 @@ window.onload = () => {
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
-    setCurrencyHandler(setCountry, localStorageIsSet)
+    setCurrencyHandler(setCountry, localStorageIsSet, isFromKW)
   }
 }
 
 /** Checks localStorage to see if currency has already been automatically set */
-const setCurrencyHandler = (setCountry, localStorageIsSet) => {
-  console.log('setCurrencyHandler args', setCountry, localStorageIsSet)
-  if (validateCurrency(setCountry) && !localStorageIsSet) {
+const setCurrencyHandler = (setCountry, localStorageIsSet, isFromKW) => {
+  console.log('setCurrencyHandler args', setCountry, localStorageIsSet, isFromKW)
+  if (validateCurrency(setCountry) && (!localStorageIsSet || isFromKW)) {
     localStorage.setItem('amakinCurrencyAutoSet', true)
 
     if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
