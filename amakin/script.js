@@ -57,7 +57,8 @@ const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isPa
   //   return
   // }
 
-  if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
+  if (validateCurrency(setCountry) && (!localStorageIsSet || (countryURLParam && !isParamCountryMatching))) {
+    console.log('1')
     localStorage.setItem('amakinCurrencyAutoSet', true)
 
     if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
