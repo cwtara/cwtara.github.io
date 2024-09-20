@@ -25,19 +25,22 @@ window.onload = () => {
   const userCountry = geoIPData?.country_code?.toUpperCase()
   const isUserCountryMatching = (shopyflowSelectedCurrency == userCountry)
 
+  const isKuwait = window.location.href === KUWAIT_URL
+
   const queryParams = new URLSearchParams(window.location.search)
-  const countryURLParam = queryParams.get('selectCountry')
+  // ignore url param if KW
+  const countryURLParam = isKuwait ? null : queryParams.get('selectCountry')
   const isParamCountryMatching = (shopyflowSelectedCurrency == countryURLParam)
 
-  const localStorageIsSet = localStorage.getItem('amakinCurrencyAutoSet')  
   const setCountry = countryURLParam && !isParamCountryMatching ? countryURLParam : userCountry
-  
+  const localStorageIsSet = localStorage.getItem('amakinCurrencyAutoSet')
+
   if (isUserCountryMatching && !countryURLParam) { // should check for UAE to avoid load flash
     // hide currency select modal (or do nothing if we are auto-setting)
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
-    setCurrencyHandler(setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching)
+    setCurrencyHandler(setCountry, localStorageIsSet)
   }
 }
 
@@ -45,24 +48,12 @@ window.onload = () => {
 const setCurrencyHandler = (setCountry, localStorageIsSet) => {
   console.log('setCurrency?', setCountry, !localStorageIsSet)
 
-  // if (!localStorageIsSet || (countryURLParam && !isParamCountryMatching)) {
-  //   localStorage.setItem('amakinCurrencyAutoSet', true)
-
-  //   if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
-  //     window.location.assign(KUWAIT_URL)
-  //   } else if (validateCurrency(setCountry)) {
-  //     return Shopyflow.setCurrency(setCountry)
-  //   }
-  // } else {
-  //   return
-  // }
-
   if (validateCurrency(setCountry) && !localStorageIsSet) {
-    console.log('1')
     localStorage.setItem('amakinCurrencyAutoSet', true)
 
     if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
       console.log('REDIRECT TO KW')
+      window.location.assign(KUWAIT_URL)
     } else {
       console.log('setCurrency()', setCountry)
       return Shopyflow.setCurrency(setCountry)
