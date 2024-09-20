@@ -53,6 +53,7 @@ const setCurrencyHandler = (setCountry, localStorageIsSet, isFromKW) => {
       console.log('--> REDIRECT TO KW -->')
       // window.location.assign(KUWAIT_URL)
     } else {
+      history.pushState(null, '', location.href.split('isFromKW')[0])
       console.log('setCurrency()', setCountry)
       return Shopyflow.setCurrency(setCountry)
     }
