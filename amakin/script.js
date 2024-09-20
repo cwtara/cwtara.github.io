@@ -65,7 +65,7 @@ const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isPa
       console.log('REDIRECT TO KW')
     } else {
       console.log('setCurrency()', setCountry)
-      // return Shopyflow.setCurrency(setCountry)
+      return Shopyflow.setCurrency(setCountry)
     }
   } else {
     return
