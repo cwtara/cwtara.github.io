@@ -47,6 +47,7 @@ const setCurrencyHandler = (setCountry, localStorageIsSet, isFromKW) => {
   console.log('setCurrencyHandler args', setCountry, localStorageIsSet, isFromKW)
   if (validateCurrency(setCountry) && (!localStorageIsSet || isFromKW)) {
     localStorage.setItem('amakinCurrencyAutoSet', true)
+    console.log('1')
 
     if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
       console.log('--> REDIRECT TO KW -->')
