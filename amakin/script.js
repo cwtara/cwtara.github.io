@@ -30,7 +30,7 @@ window.onload = () => {
   const isParamCountryMatching = (shopyflowSelectedCurrency == countryURLParam)
 
   const localStorageIsSet = localStorage.getItem('amakinCurrencyAutoSet')  
-  const setCountry = countryURLParam ? countryURLParam : userCountry
+  const setCountry = countryURLParam && !isParamCountryMatching ? countryURLParam : userCountry
   
   if (isUserCountryMatching && !countryURLParam) { // should check for UAE to avoid load flash
     // hide currency select modal (or do nothing if we are auto-setting)
@@ -57,7 +57,7 @@ const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isPa
   //   return
   // }
 
-  if (validateCurrency(setCountry) && (!localStorageIsSet || (countryURLParam && !isParamCountryMatching))) {
+  if (validateCurrency(setCountry) && !localStorageIsSet) {
     console.log('1')
     localStorage.setItem('amakinCurrencyAutoSet', true)
 
