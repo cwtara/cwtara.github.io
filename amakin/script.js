@@ -26,7 +26,6 @@ window.onload = () => {
   const isUserCountryMatching = (shopyflowSelectedCurrency == userCountry)
 
   const queryParams = new URLSearchParams(window.location.search)
-  // ignore url param if KW
   const countryURLParam = queryParams.get('selectCountry')
   const isParamCountryMatching = (shopyflowSelectedCurrency == countryURLParam)
 
@@ -38,6 +37,10 @@ window.onload = () => {
     console.log('Already set, no update needed!')
   } else if (typeof Shopyflow !== 'undefined') {
     // automatically set currency in Shopyflow
+    if (setCountry === countryURLParam) {
+      const stripUrl = location.href.split('?')[0];
+      window.history.pushState('object', document.title, stripUrl);
+    }
     setCurrencyHandler(setCountry, localStorageIsSet)
   }
 }
