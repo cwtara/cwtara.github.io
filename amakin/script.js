@@ -44,14 +44,25 @@ window.onload = () => {
 /** Checks localStorage to see if currency has already been manually set */
 const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching) => {
   console.log('setCurrency', setCountry)
-  if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
-    window.location.assign(KUWAIT_URL)
-  } else if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
+
+  if (!localStorageIsSet || countryURLParam && !isParamCountryMatching) {
     localStorage.setItem(window.location.origin, true)
-    return Shopyflow.setCurrency(setCountry)
+
+    if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
+      window.location.assign(KUWAIT_URL)
+    } else if (validateCurrency(setCountry)) {
+      return Shopyflow.setCurrency(setCountry)
+    }
   } else {
     return
   }
+
+  // if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
+  //   localStorage.setItem(window.location.origin, true)
+  //   return Shopyflow.setCurrency(setCountry)
+  // } else {
+  //   return
+  // }
 }
 /** end currency handling */
 
