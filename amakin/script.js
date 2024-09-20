@@ -25,11 +25,9 @@ window.onload = () => {
   const userCountry = geoIPData?.country_code?.toUpperCase()
   const isUserCountryMatching = (shopyflowSelectedCurrency == userCountry)
 
-  const isKuwait = window.location.href === KUWAIT_URL
-
   const queryParams = new URLSearchParams(window.location.search)
   // ignore url param if KW
-  const countryURLParam = isKuwait ? null : queryParams.get('selectCountry')
+  const countryURLParam = queryParams.get('selectCountry')
   const isParamCountryMatching = (shopyflowSelectedCurrency == countryURLParam)
 
   const setCountry = countryURLParam && !isParamCountryMatching ? countryURLParam : userCountry
@@ -52,8 +50,8 @@ const setCurrencyHandler = (setCountry, localStorageIsSet) => {
     localStorage.setItem('amakinCurrencyAutoSet', true)
 
     if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
-      console.log('REDIRECT TO KW')
-      window.location.assign(KUWAIT_URL)
+      console.log('--> REDIRECT TO KW -->')
+      // window.location.assign(KUWAIT_URL)
     } else {
       console.log('setCurrency()', setCountry)
       return Shopyflow.setCurrency(setCountry)
