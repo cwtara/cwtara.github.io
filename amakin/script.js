@@ -44,7 +44,7 @@ window.onload = () => {
 /** Checks localStorage to see if currency has already been manually set */
 const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching) => {
 
-  if (setCountry === 'KW' && window.location.href !== KUWAIT_URL) {
+  if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
     window.location.assign(KUWAIT_URL)
   } else if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
     localStorage.setItem(window.location.origin, true)
