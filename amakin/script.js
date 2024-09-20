@@ -43,7 +43,7 @@ window.onload = () => {
 
 /** Checks localStorage to see if currency has already been manually set */
 const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching) => {
-  console.log('setCurrency', setCountry)
+  console.log('setCurrency', setCountry, !localStorageIsSet || countryURLParam && !isParamCountryMatching)
 
   if (!localStorageIsSet || countryURLParam && !isParamCountryMatching) {
     localStorage.setItem(window.location.origin, true)
