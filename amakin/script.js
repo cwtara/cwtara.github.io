@@ -9,7 +9,7 @@ const userLang = userLangRegion.split('-')[0]
 console.log('userLang', userLang)
 
 const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
-const CURRENCY_ALLOWLIST = ['AE', 'SA', 'QA']
+const CURRENCY_ALLOWLIST = ['AE', 'SA', 'QA', 'KW']
 const KUWAIT_URL = 'https://amakin.com.kw'
 
 if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
@@ -29,7 +29,7 @@ window.onload = () => {
   const countryURLParam = queryParams.get('selectCountry')
   const isParamCountryMatching = (shopyflowSelectedCurrency == countryURLParam)
 
-  const localStorageIsSet = localStorage.getItem(window.location.origin)  
+  const localStorageIsSet = localStorage.getItem('amakinCurrencyAutoSet')  
   const setCountry = countryURLParam ? countryURLParam : userCountry
   
   if (isUserCountryMatching && !countryURLParam) { // should check for UAE to avoid load flash
@@ -45,24 +45,29 @@ window.onload = () => {
 const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching) => {
   console.log('setCurrency?', setCountry, !localStorageIsSet, countryURLParam && !isParamCountryMatching)
 
-  if (!localStorageIsSet || (countryURLParam && !isParamCountryMatching)) {
-    localStorage.setItem(window.location.origin, true)
+  // if (!localStorageIsSet || (countryURLParam && !isParamCountryMatching)) {
+  //   localStorage.setItem('amakinCurrencyAutoSet', true)
+
+  //   if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
+  //     window.location.assign(KUWAIT_URL)
+  //   } else if (validateCurrency(setCountry)) {
+  //     return Shopyflow.setCurrency(setCountry)
+  //   }
+  // } else {
+  //   return
+  // }
+
+  if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
+    localStorage.setItem('amakinCurrencyAutoSet', true)
 
     if (setCountry === 'LA' && window.location.href !== KUWAIT_URL) {
-      window.location.assign(KUWAIT_URL)
-    } else if (validateCurrency(setCountry)) {
+      console.log('REDIRECT TO KW')
+    } else {
       return Shopyflow.setCurrency(setCountry)
     }
   } else {
     return
   }
-
-  // if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
-  //   localStorage.setItem(window.location.origin, true)
-  //   return Shopyflow.setCurrency(setCountry)
-  // } else {
-  //   return
-  // }
 }
 /** end currency handling */
 
