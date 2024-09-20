@@ -10,6 +10,7 @@ console.log('userLang', userLang)
 
 const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
 const CURRENCY_ALLOWLIST = ['AE', 'SA', 'QA']
+const KUWAIT_URL = 'https://amakin.com.kw'
 
 if (LANGUAGE_REDIRECT_ALLOWLIST.includes(userLang.toLowerCase())) {
   console.log('language redirect: ', userLang)
@@ -42,7 +43,10 @@ window.onload = () => {
 
 /** Checks localStorage to see if currency has already been manually set */
 const setCurrencyHandler = (setCountry, localStorageIsSet, countryURLParam, isParamCountryMatching) => {
-  if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
+
+  if (setCountry === 'KW' && window.location.href !== KUWAIT_URL) {
+    window.location.assign(KUWAIT_URL)
+  } else if (validateCurrency(setCountry) && (!localStorageIsSet || countryURLParam && !isParamCountryMatching)) {
     localStorage.setItem(window.location.origin, true)
     return Shopyflow.setCurrency(setCountry)
   } else {
