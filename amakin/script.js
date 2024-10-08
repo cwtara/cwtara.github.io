@@ -8,7 +8,7 @@ const userLangRegion = navigator.language || navigator.userLanguage
 const userLang = userLangRegion.split('-')[0]
 console.log('userLang', userLang)
 
-const LANGUAGE_REDIRECT_ALLOWLIST = ['ar', 'es']
+const LANGUAGE_REDIRECT_ALLOWLIST = ['ar']
 const CURRENCY_ALLOWLIST = ['AE', 'SA', 'QA', 'KW', 'LA']
 const KUWAIT_URL = 'https://amakin.com.kw'
 

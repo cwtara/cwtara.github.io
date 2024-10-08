@@ -68,6 +68,12 @@
     display: inline-flex!important;
 	  align-items: center!important;
   }
+  .klaviyo-form input#email_122635250 {
+    padding: 0.5rem!important;
+  }
+  .klaviyo-form button.needsclick.go2823671216 {
+    padding: 0.5rem!important;
+  }
 }
 
 /* .product-container {
